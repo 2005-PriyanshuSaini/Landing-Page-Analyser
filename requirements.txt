@@ -1,0 +1,13 @@
+streamlit 
+torch 
+torchvision 
+torchaudio 
+transformers 
+requests
+selenium
+selenium-stealth
+pillow
+python-dotenv
+
+# Remove-Item -Recurse -Force "env file path"
+# pip install streamlit torch torchvision torchaudio transformers requests selenium selenium-stealth pillow python-dotenv
