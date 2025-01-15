@@ -6,12 +6,14 @@ import web_screenshot
 from ai_personas import persona_prompts_small
 from prompt_template import analysis_prompt
 import torch
+import torchvision
 import torchvision.transforms as transforms
+from torchvision.models import ResNet50_Weights
 from torchvision import models
 import asyncio
 
 # Load a pre-trained CNN model (e.g., ResNet)
-cnn_model = models.resnet50(pretrained=True)
+cnn_model = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT)
 cnn_model.eval()
 
 async def main():
@@ -39,7 +41,7 @@ async def handle_webpage_screenshot():
             return None
 
         resized_image_path = web_screenshot.resize_image(captured_image_path)
-        st.image(resized_image_path, caption='Captured Screenshot', use_column_width=True)
+        st.image(resized_image_path, caption='Captured Screenshot', use_container_width=True)
         return resized_image_path
     return None
 
@@ -47,7 +49,7 @@ async def handle_image_upload():
     uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg", "gif", "bmp", "tiff"])
     if uploaded_file:
         image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Screenshot", use_column_width=True)
+        st.image(image, caption="Uploaded Screenshot", use_container_width=True)
 
         # Save image locally if needed, or process directly
         image_path = "uploaded_image.png"
