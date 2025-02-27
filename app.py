@@ -11,10 +11,15 @@ import torchvision.transforms as transforms
 from torchvision.models import ResNet50_Weights
 from torchvision import models
 import asyncio
+import logging
 
 # Load a pre-trained CNN model (e.g., ResNet)
-cnn_model = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT)
-cnn_model.eval()
+try:
+    cnn_model = torchvision.models.resnet50(weights=ResNet50_Weights.DEFAULT)
+    cnn_model.eval()
+    logging.info("CNN model loaded successfully.")
+except Exception as e:
+    logging.error(f"Error loading CNN model: {e}")
 
 async def main():
     st.title("Landing Page Analyzer")
