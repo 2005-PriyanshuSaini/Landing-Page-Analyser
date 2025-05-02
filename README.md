@@ -1,5 +1,1 @@
-﻿
-# 17-10-2024  i have made changes till text generation and hence new changes/updates are being made if you have any suggestions than i would like to create this a big project
-# Landing-page-optimization
-# LandingpageAI
-# 14-09-ai-op
+﻿#this is a self made project and i have used open-ai and resnet-50 with cnn to make a landing page analyser

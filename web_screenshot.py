@@ -32,29 +32,13 @@ def upload_to_imgur(image_path):
             logging.info("Upload successful!")
             return response.json().get('data', {}).get('link')
         else:
-            logging.error(f"Error uploading to Imgur: {response.status_code} - {response.text}")
+            logging.error(f"Error uploading to Imgur: {response.status_code}")
             return None
     except Exception as e:
         logging.error(f"Error during Imgur upload: {e}")
         return None
 
-def is_valid_url(url):
-    try:
-        result = requests.get(url)
-        if result.status_code == 200:
-            return True
-        else:
-            logging.error(f"Invalid URL: {url} returned status code {result.status_code}")
-            return False
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Invalid URL: {e}")
-        return False
-
 def capture_web_page_image(url, file_path=None, retries=3, retry_delay=2):
-    if not is_valid_url(url):
-        logging.error("Invalid URL provided.")
-        return None
-
     if file_path is None:
         file_path = f"screenshot_{uuid.uuid4().hex}.png"
     
@@ -71,6 +55,7 @@ def capture_web_page_image(url, file_path=None, retries=3, retry_delay=2):
     while attempt <= retries:
         driver = None
         try:
+            # Corrected: Using Service for the chromedriver
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
             stealth(driver,
                     languages=["en-US", "en"],
@@ -83,13 +68,14 @@ def capture_web_page_image(url, file_path=None, retries=3, retry_delay=2):
             driver.get(url)
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
 
+            # Capture screenshot
             driver.save_screenshot(file_path)
             logging.info(f"Screenshot saved to {file_path}")
             return file_path
         except Exception as e:
             logging.error(f"Error capturing screenshot on attempt {attempt}: {e}")
             attempt += 1
-            time.sleep(retry_delay * attempt)
+            time.sleep(retry_delay * attempt)  # Exponential backoff
         finally:
             if driver:
                 driver.quit()
