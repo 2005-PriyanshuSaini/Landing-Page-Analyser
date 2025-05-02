@@ -71,6 +71,3 @@ streamlit run app.py
 Built independently by Priyanshu Saini.
 
 ---
-=======
-
->>>>>>> 0da2361e6356f9cab7d3c9b682eec04145e39cf4
