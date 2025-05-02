@@ -1,1 +1,1 @@
-﻿#this is a self made project and i have used open-ai and resnet-50 with cnn to make a landing page analyser
+
