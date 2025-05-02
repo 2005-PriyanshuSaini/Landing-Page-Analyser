@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<div align="center">
   <img src="https://media.giphy.com/media/dWesBcTLavkZuG35MI/giphy.gif" width="600" height="300" alt="Landing Page Analyzer Banner"/>
 </div>
@@ -71,3 +72,6 @@ streamlit run app.py
 Built independently by Priyanshu Saini.
 
 ---
+=======
+
+>>>>>>> 0da2361e6356f9cab7d3c9b682eec04145e39cf4
