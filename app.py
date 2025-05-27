@@ -3,7 +3,7 @@ from PIL import Image
 from openai_functions import generate_with_response_model
 from image_analysis import analyze_image_hf
 import web_screenshot
-from ai_personas import persona_prompts_small
+from ai_personas import persona_prompts_small as persona_prompts
 from prompt_template import analysis_prompt
 import torch
 import torchvision
@@ -75,7 +75,7 @@ async def cnn_visual_analysis(image_path):
         cnn_output = cnn_model(image)
 
     # Placeholder: Replace with your own logic to interpret CNN results
-    visual_analysis_result = "CNN visual analysis completed. Layout and image quality issues detected."
+    visual_analysis_result = "CNN visual analysis completed. Layout and image quality issues detected. generating results..."
     
     return visual_analysis_result
 
@@ -94,7 +94,7 @@ async def analyze_image(image_path):
         # Step 2: Text-based analysis using personas with GPT-4
         all_persona_suggestions = []
 
-        for persona in persona_prompts_small:
+        for persona in persona_prompts:
             for title, prompt in persona.items():
                 combined_prompt = f"{prompt} {analysis_prompt}"
                 
