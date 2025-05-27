@@ -25,8 +25,8 @@ A comprehensive tool for evaluating landing pages through both visual and AI-pow
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="Python"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" height="40" alt="Streamlit"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" height="40" alt="PyTorch"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" height="40" alt="OpenAI"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/huggingface/huggingface-original.svg" height="40" alt="Hugging Face"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/OpenAI_Logo.svg" height="40" alt="OpenAI"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Hf-logo-with-title.svg" height="40" alt="Hugging Face"/>
 </div>
 
 ---
